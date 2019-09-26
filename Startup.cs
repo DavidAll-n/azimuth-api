@@ -58,6 +58,7 @@ namespace azimuth_api
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }
