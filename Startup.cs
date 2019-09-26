@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using azimuth_api.Models;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace azimuth_api
 {
@@ -35,7 +36,8 @@ namespace azimuth_api
                     builder.WithOrigins("*");
                     });
                 });
-            services.AddDbContext<MapContext>(options => options.UseSqlite(Configuration.GetConnectionString("MapContext")));
+            //services.AddDbContext<MapContext>(options => options.UseSqlite(Configuration.GetConnectionString("MapContext")));
+            services.AddDbContext<MapContext>(options => options.UseMySql(Configuration.GetConnectionString("MapContext")));
 
             services.AddMvc().AddJsonOptions(options => {
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
