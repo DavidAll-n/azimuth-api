@@ -67,6 +67,8 @@ namespace azimuth_api.Models {
                 .HasOne(mapItemKeyword => mapItemKeyword.MapItem)
                 .WithMany( item => item.MapItemKeywords )
                 .HasForeignKey(mapItemKeyword => mapItemKeyword.MapItemId);
+
+            modelBuilder.Seed();
         }
     }
 }

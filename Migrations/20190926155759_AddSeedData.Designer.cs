@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using azimuth_api.Models;
 
 namespace azimuth_api.Migrations
 {
     [DbContext(typeof(MapContext))]
-    partial class MapContextModelSnapshot : ModelSnapshot
+    [Migration("20190926155759_AddSeedData")]
+    partial class AddSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -370,7 +372,6 @@ namespace azimuth_api.Migrations
                             Id = 1,
                             Clickable = true,
                             FillColor = "003da5",
-                            GroupId = 1,
                             ImageURL = "https://maps.unca.edu/media/map_images/lipinsky-hall-unca.modal_rep.jpg",
                             Label = "Lipinsky Hall",
                             Name = "Lipinsky Hall",
@@ -384,7 +385,6 @@ namespace azimuth_api.Migrations
                             Id = 2,
                             Clickable = true,
                             FillColor = "003da5",
-                            GroupId = 2,
                             ImageURL = "https://maps.unca.edu/media/map_images/lipinsky-hall-unca.modal_rep.jpg",
                             Label = "Mullen & James Humanities Hall",
                             Name = "Mullen & James Humanities Hall",
