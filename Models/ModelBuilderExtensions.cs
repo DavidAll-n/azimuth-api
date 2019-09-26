@@ -105,160 +105,160 @@ namespace azimuth_api.Models {
             modelBuilder.Entity<Coordinate>().HasData(
                 new {
                     Id = 1L,
-                    Lat = 35.61731f,
-                    Lng = -82.56656f,
+                    Lat = 35.61731M,
+                    Lng = -82.56656M,
                     PolygonId = 1,
                     MapItemId = 1
                 },
                 new {
                     Id = 2L,
-                    Lat = 35.61711f,
-                    Lng = -82.56626f,
+                    Lat = 35.61711M,
+                    Lng = -82.56626M,
                     PolygonId = 1
                 },
                 new {
                     Id = 3L,
-                    Lat = 35.61717f,
-                    Lng = -82.56619f,
+                    Lat = 35.61717M,
+                    Lng = -82.56619M,
                     PolygonId = 1
                 },
                 new {
                     Id = 4L,
-                    Lat = 35.61701f,
-                    Lng = -82.56598f,
+                    Lat = 35.61701M,
+                    Lng = -82.56598M,
                     PolygonId = 1
                 },
                 new {
                     Id = 5L,
-                    Lat = 35.61672f,
-                    Lng = -82.56631f,
+                    Lat = 35.61672M,
+                    Lng = -82.56631M,
                     PolygonId = 1
                 },
                 new {
                     Id = 6L,
-                    Lat = 35.61688f,
-                    Lng = -82.56652f,
+                    Lat = 35.61688M,
+                    Lng = -82.56652M,
                     PolygonId = 1
                 },
                 new {
                     Id = 7L,
-                    Lat = 35.61692f,
-                    Lng = -82.56648f,
+                    Lat = 35.61692M,
+                    Lng = -82.56648M,
                     PolygonId = 1
                 },
                 new {
                     Id = 8L,
-                    Lat = 35.61695f,
-                    Lng = -82.56649f,
+                    Lat = 35.61695M,
+                    Lng = -82.56649M,
                     PolygonId = 1
                 },
                 new {
                     Id = 9L,
-                    Lat = 35.61697f,
-                    Lng = -82.56647f,
+                    Lat = 35.61697M,
+                    Lng = -82.56647M,
                     PolygonId = 1
                 },
                 new {
                     Id = 10L,
-                    Lat = 35.61716f,
-                    Lng = -82.56671f,
+                    Lat = 35.61716M,
+                    Lng = -82.56671M,
                     PolygonId = 1
                 },
                 new {
                     Id = 11L,
-                    Lat = 35.61726f,
-                    Lng = -82.56424f,
+                    Lat = 35.61726M,
+                    Lng = -82.56424M,
                     PolygonId = 2
                 },
                 new {
                     Id = 12L,
-                    Lat = 35.61723f,
-                    Lng = -82.56419f,
+                    Lat = 35.61723M,
+                    Lng = -82.56419M,
                     PolygonId = 2,
                     MapItemId = 2
                 },
                 new {
                     Id = 13L,
-                    Lat = 35.61721f,
-                    Lng = -82.56412f,
+                    Lat = 35.61721M,
+                    Lng = -82.56412M,
                     PolygonId = 2
                 },
                 new {
                     Id = 14L,
-                    Lat = 35.61716f,
-                    Lng = -82.56411f,
+                    Lat = 35.61716M,
+                    Lng = -82.56411M,
                     PolygonId = 2
                 },
                 new {
                     Id = 15L,
-                    Lat = 35.61711f,
-                    Lng = -82.56408f,
+                    Lat = 35.61711M,
+                    Lng = -82.56408M,
                     PolygonId = 2
                 },
                 new {
                     Id = 16L,
-                    Lat = 35.61707f,
-                    Lng = -82.56412f,
+                    Lat = 35.61707M,
+                    Lng = -82.56412M,
                     PolygonId = 2
                 },
                 new {
                     Id = 17L,
-                    Lat = 35.61702f,
-                    Lng = -82.56414f,
+                    Lat = 35.61702M,
+                    Lng = -82.56414M,
                     PolygonId = 2
                 },
                 new {
                     Id = 18L,
-                    Lat = 35.61701f,
-                    Lng = -82.5642f,
+                    Lat = 35.61701M,
+                    Lng = -82.5642M,
                     PolygonId = 2
                 },
                 new {
                     Id = 19L,
-                    Lat = 35.61699f,
-                    Lng = -82.56426f,
+                    Lat = 35.61699M,
+                    Lng = -82.56426M,
                     PolygonId = 2
                 },
                 new {
                     Id = 20L,
-                    Lat = 35.61702f,
-                    Lng = -82.56431f,
+                    Lat = 35.61702M,
+                    Lng = -82.56431M,
                     PolygonId = 2
                 },
                 new {
                     Id = 21L,
-                    Lat = 35.61703f,
-                    Lng = -82.56437f,
+                    Lat = 35.61703M,
+                    Lng = -82.56437M,
                     PolygonId = 2
                 },
                 new {
                     Id = 22L,
-                    Lat = 35.61709f,
-                    Lng = -82.56438f,
+                    Lat = 35.61709M,
+                    Lng = -82.56438M,
                     PolygonId = 2
                 },
                 new {
                     Id = 23L,
-                    Lat = 35.61713f,
-                    Lng = -82.56441f,
+                    Lat = 35.61713M,
+                    Lng = -82.56441M,
                     PolygonId = 2
                 },
                 new {
                     Id = 24L,
-                    Lat = 35.61717f,
-                    Lng = -82.56437f,
+                    Lat = 35.61717M,
+                    Lng = -82.56437M,
                     PolygonId = 2
                 },
                 new {
                     Id = 25L,
-                    Lat = 35.61722f,
-                    Lng = -82.56437f,
+                    Lat = 35.61722M,
+                    Lng = -82.56437M,
                     PolygonId = 2
                 },
                 new {
                     Id = 26L,
-                    Lat = 35.61723f,
-                    Lng = -82.56429f,
+                    Lat = 35.61723M,
+                    Lng = -82.56429M,
                     PolygonId = 2
                 }
             );
