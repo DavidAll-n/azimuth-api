@@ -39,3 +39,4 @@ msbuild.wrn
 appsettings.*
 *.db
 wwwroot/lib/*
+*.log
