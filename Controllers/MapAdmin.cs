@@ -17,10 +17,34 @@ namespace azimuth_api {
         {
             _context = context;
         }
+
+        [HttpGet]
+        [Route("create")]
+        public IActionResult Create() {
+            ViewBag.Title = "New Map";
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("create")]
+        public async Task<IActionResult> Create([Bind("MapId, Name")] Map map) {
+            if (ModelState.IsValid)
+            {
+                _context.Add(map);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index","Admin");
+            }
+            return View(map);
+        }
         
         [HttpGet]
         [Route("edit/{id}")]
-        public async Task<IActionResult> Edit(int id) {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null) {
+                return NotFound();
+            }
+            
             ViewBag.Title = "Maps";
             var map = await _context.Maps.FindAsync(id);
 

@@ -1,8 +1,8 @@
 @model IEnumerable<azimuth_api.Models.Map>
 
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between align-items-center">
     <h1>Maps</h1>
-    <a asp-action="create">
+    <a asp-action="Create" asp-controller="MapAdmin" class="btn btn-success">
         <i class="fa fa-plus"></i>
     </a>
 </div>
@@ -23,15 +23,15 @@
                 <td>@map.Name</td>
                 <td>
                     @Html.ActionLink($"/api/map/{@map.MapId}","GetMap","Map",new { Id = map.MapId })
-                    <button type="button" class="btn btn-sm btn-light">Copy</button>
+                    <button type="button" class="btn btn-sm btn-light"><i class="fa fa-copy"></i> Copy</button>
                 </td>
                 <td>
-                    <ul class="list-inline">
+                    <ul class="list-inline mb-0">
                         <li class="list-inline-item">
-                            @Html.ActionLink("Edit","Edit","MapAdmin", new { Id = map.MapId })
+                            <a asp-action="Edit" asp-controller="MapAdmin" asp-route-id="@map.MapId" class="btn btn-sm btn-light"><i class="fa fa-edit"></i> Edit </a>
                         </li>
                         <li class="list-inline-item">
-                            @Html.ActionLink("Delete","delete","map", new { Id = map.MapId })
+                            <a asp-action="Edit" asp-controller="MapAdmin" asp-route-id="@map.MapId" class="btn btn-sm btn-light"><i class="fa fa-times"></i> Delete </a>
                         </li>
                     </ul>
                 </td>
