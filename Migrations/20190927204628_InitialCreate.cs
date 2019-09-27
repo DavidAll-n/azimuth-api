@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace azimuth_api.Migrations
 {
@@ -11,7 +12,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     GroupId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Visible = table.Column<bool>(nullable: false)
                 },
@@ -25,7 +26,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Word = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -38,7 +39,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     MapId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -51,7 +52,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     TourId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -112,7 +113,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Label = table.Column<string>(nullable: true),
                     Visible = table.Column<bool>(nullable: false),
@@ -165,7 +166,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ItemId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -184,7 +185,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ItemId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -228,9 +229,9 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Lat = table.Column<float>(nullable: false),
-                    Lng = table.Column<float>(nullable: false),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Lat = table.Column<decimal>(nullable: false),
+                    Lng = table.Column<decimal>(nullable: false),
                     PolygonId = table.Column<int>(nullable: true),
                     PolylineId = table.Column<int>(nullable: true)
                 },
@@ -256,7 +257,7 @@ namespace azimuth_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     DataId = table.Column<long>(nullable: true),
                     Icon = table.Column<string>(nullable: true),
                     ItemId = table.Column<int>(nullable: true)
@@ -276,6 +277,103 @@ namespace azimuth_api.Migrations
                         principalTable: "MapItems",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Groups",
+                columns: new[] { "GroupId", "Name", "Visible" },
+                values: new object[,]
+                {
+                    { 1, "Group 1", false },
+                    { 2, "Group 2", false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Keyword",
+                columns: new[] { "Id", "Word" },
+                values: new object[,]
+                {
+                    { 1, "Music" },
+                    { 2, "Moog" },
+                    { 3, "Lecture" },
+                    { 4, "Construction" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Maps",
+                columns: new[] { "MapId", "Name" },
+                values: new object[] { 1, "Demo Map" });
+
+            migrationBuilder.InsertData(
+                table: "MapGroup",
+                columns: new[] { "GroupId", "MapId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MapItems",
+                columns: new[] { "Id", "Clickable", "FillColor", "GroupId", "ImageURL", "KeyPointId", "Label", "Name", "PageURL", "StrokeColor", "Summary", "Visible" },
+                values: new object[,]
+                {
+                    { 1, true, "003da5", 1, "https://maps.unca.edu/media/map_images/lipinsky-hall-unca.modal_rep.jpg", null, "Lipinsky Hall", "Lipinsky Hall", "https://maps.unca.edu/campus-map/lipinsky-hall", "ffffff", "Lipinsky Hall is situated on the north corner of the Quad, next to Ramsey Library. Home to the Bob Moog Electronic Music Studio, the building houses the Department of Music and Lipinsky Auditorium, a 580-seat venue for lectures, music and live performances. UNC Asheville's Office of Institutional Research, Effectiveness, and Planning is also located in Lipinsky Hall.", true },
+                    { 2, true, "003da5", 2, "https://maps.unca.edu/media/map_images/lipinsky-hall-unca.modal_rep.jpg", null, "Mullen & James Humanities Hall", "Mullen & James Humanities Hall", "https://maps.unca.edu/campus-map/lipinsky-hall", "ffffff", @"*Fall 2019: Under construction*
+                Mullen & James Humanities Hall, adjoining Carmichael Hall, seats 330 in a semicircular auditorium-style arrangement for humanities lectures and special events. Its unusual pleated roof lines may be seen from the entrance to UNC Asheville on University Heights. Mullen & James Humanities Hall was renovated and updated in 2013.", true }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MapItemKeyword",
+                columns: new[] { "KeywordId", "MapItemId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 1 },
+                    { 3, 2 },
+                    { 4, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Polygon",
+                columns: new[] { "Id", "ItemId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Coordinate",
+                columns: new[] { "Id", "Lat", "Lng", "PolygonId", "PolylineId" },
+                values: new object[,]
+                {
+                    { 1L, 35.61731m, -82.56656m, 1, null },
+                    { 24L, 35.61717m, -82.56437m, 2, null },
+                    { 23L, 35.61713m, -82.56441m, 2, null },
+                    { 22L, 35.61709m, -82.56438m, 2, null },
+                    { 21L, 35.61703m, -82.56437m, 2, null },
+                    { 20L, 35.61702m, -82.56431m, 2, null },
+                    { 19L, 35.61699m, -82.56426m, 2, null },
+                    { 18L, 35.61701m, -82.5642m, 2, null },
+                    { 17L, 35.61702m, -82.56414m, 2, null },
+                    { 16L, 35.61707m, -82.56412m, 2, null },
+                    { 15L, 35.61711m, -82.56408m, 2, null },
+                    { 14L, 35.61716m, -82.56411m, 2, null },
+                    { 13L, 35.61721m, -82.56412m, 2, null },
+                    { 12L, 35.61723m, -82.56419m, 2, null },
+                    { 11L, 35.61726m, -82.56424m, 2, null },
+                    { 10L, 35.61716m, -82.56671m, 1, null },
+                    { 9L, 35.61697m, -82.56647m, 1, null },
+                    { 8L, 35.61695m, -82.56649m, 1, null },
+                    { 7L, 35.61692m, -82.56648m, 1, null },
+                    { 6L, 35.61688m, -82.56652m, 1, null },
+                    { 5L, 35.61672m, -82.56631m, 1, null },
+                    { 4L, 35.61701m, -82.56598m, 1, null },
+                    { 3L, 35.61717m, -82.56619m, 1, null },
+                    { 2L, 35.61711m, -82.56626m, 1, null },
+                    { 25L, 35.61722m, -82.56437m, 2, null },
+                    { 26L, 35.61723m, -82.56429m, 2, null }
                 });
 
             migrationBuilder.CreateIndex(
