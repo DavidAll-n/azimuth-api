@@ -21,6 +21,7 @@ namespace azimuth_api {
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> Index() {
+            ViewBag.Title = "Maps";
             var mapsList = await _context.Maps.ToListAsync();
             return View(mapsList);
         }

@@ -1,5 +1,36 @@
 @model IEnumerable<azimuth_api.Models.Map>
 
-@foreach(var foo in Model){
-    <pre>@foo.Name</pre>
-}
+<h1>Maps</h1>
+
+<table class="table table-sm table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(f => f.First().MapId)</th>
+            <th>@Html.DisplayNameFor(f => f.First().Name)</th>
+            <th>URL</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var map in Model){
+            <tr>
+                <td>@map.MapId</td>
+                <td>@map.Name</td>
+                <td>
+                    @Html.ActionLink($"/api/map/{@map.MapId}","GetMap","Map",new { Id = map.MapId })
+                    <button type="button" class="btn btn-sm btn-light">Copy</button>
+                </td>
+                <td>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            @Html.ActionLink("Edit","edit","map", new { Id = map.MapId })
+                        </li>
+                        <li class="list-inline-item">
+                            @Html.ActionLink("Delete","delete","map", new { Id = map.MapId })
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
