@@ -1,6 +1,11 @@
 @model IEnumerable<azimuth_api.Models.Map>
 
-<h1>Maps</h1>
+<div class="d-flex justify-content-between">
+    <h1>Maps</h1>
+    <a asp-action="create">
+        <i class="fa fa-plus"></i>
+    </a>
+</div>
 
 <table class="table table-sm table-striped">
     <thead class="thead-dark">
@@ -23,7 +28,7 @@
                 <td>
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            @Html.ActionLink("Edit","edit","map", new { Id = map.MapId })
+                            @Html.ActionLink("Edit","Edit","MapAdmin", new { Id = map.MapId })
                         </li>
                         <li class="list-inline-item">
                             @Html.ActionLink("Delete","delete","map", new { Id = map.MapId })
